@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CRM</title>
+<link rel="stylesheet" href="style.css">
+<link rel="icon" href="/image/favicon.ico" type="image/x-icon">
+</head>
+<body>
+
+<input class="page-radio" type="radio" name="page" id="page-login" checked>
+<input class="page-radio" type="radio" name="page" id="page-dashboard">
+<input class="page-radio" type="radio" name="page" id="page-clients">
+<input class="page-radio" type="radio" name="page" id="page-deals">
+<input class="page-radio" type="radio" name="page" id="page-tasks">
+<input class="page-radio" type="radio" name="page" id="page-reports">
+<input class="page-radio" type="radio" name="page" id="page-profile">
+
+<div class="login-view" id="login-view">
+  <div class="login-card">
+    <div class="logo">CRM</div>
+    <h2>Вход в систему</h2>
+    <p class="sub">Мобильная CRM для управления клиентами, сделками и задачами</p>
+
+    <div class="field">
+      <label for="email">Email</label>
+      <input id="email" type="email" placeholder="Введите email">
+    </div>
+
+    <div class="field">
+      <label for="pass">Пароль</label>
+      <div class="pass">
+        <input id="pass" type="password" placeholder="Введите пароль">
+        <button class="eye" type="button" title="Показать пароль">👁</button>
+      </div>
+    </div>
+
+    <div class="row-btns">
+      <button class="btn btn-ghost" type="button" id="register-btn">Зарегистрироваться</button>
+      <button class="btn btn-primary" type="button" id="login-btn">Войти</button>
+    </div>
+
+    <a class="link" href="#">Забыли пароль?</a>
+  </div>
+</div>
+
+<div class="modal-overlay" id="register-modal">
+  <div class="modal-card">
+    <h2>Регистрация</h2>
+    <p class="sub">Создайте аккаунт менеджера</p>
+
+    <div class="field">
+      <label for="reg-name">Имя</label>
+      <input id="reg-name" type="text" placeholder="Ваше имя">
+    </div>
+    <div class="field">
+      <label for="reg-email">Email</label>
+      <input id="reg-email" type="email" placeholder="Введите email">
+    </div>
+    <div class="field">
+      <label for="reg-pass">Пароль</label>
+      <input id="reg-pass" type="password" placeholder="Минимум 6 символов">
+    </div>
+
+    <div class="row-btns" style="margin-top:10px;">
+      <button class="btn btn-ghost" id="cancel-reg">Отмена</button>
+      <button class="btn btn-primary" id="submit-reg">Создать</button>
+    </div>
+  </div>
+</div>
+
+<div class="app-view" id="app-view">
+
+  <aside class="sidebar">
+    <div class="logo">
+      <span class="mark">CRM</span>
+      <span>CRM System</span>
+    </div>
+    <nav>
+      <label class="nav-item" for="page-dashboard">
+        <span class="nav-ic">▦</span>
+        <span>Дашборд</span>
+      </label>
+      <label class="nav-item" for="page-clients">
+        <span class="nav-ic">👥</span>
+        <span>Клиенты</span>
+      </label>
+      <label class="nav-item" for="page-deals">
+        <span class="nav-ic">💼</span>
+        <span>Сделки</span>
+      </label>
+      <label class="nav-item" for="page-tasks">
+        <span class="nav-ic">✓</span>
+        <span>Задачи</span>
+      </label>
+      <label class="nav-item" for="page-reports">
+        <span class="nav-ic">📈</span>
+        <span>Отчёты</span>
+      </label>
+      <label class="nav-item" for="page-profile">
+        <span class="nav-ic">👤</span>
+        <span>Профиль</span>
+      </label>
+    </nav>
+    <div class="sidebar-footer">
+      <label class="logout-btn" for="page-login">
+        <span>←</span>
+        <span>Выход</span>
+      </label>
+    </div>
+  </aside>
+
+  <div class="main">
+
+    <header class="topbar">
+      <div class="search">
+        <span class="ic">🔍</span>
+        <input type="text" placeholder="Поиск...">
+      </div>
+      <div class="actions">
+        <button class="iconbtn" title="Уведомления">🔔</button>
+        <label class="iconbtn" for="page-profile" title="Профиль">👤</label>
+        <div class="user">
+          <div class="avatar">U</div>
+          <div>
+            <div class="u-name">Пользователь</div>
+            <div class="u-role">Роль</div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="content">
+
+      <section class="page" id="dashboard-page">
+        <div class="page-head">
+          <div>
+            <h1>Дашборд</h1>
+            <div class="sub">Сегодня</div>
+          </div>
+          <div class="actions">
+            <div class="chips">
+              <button class="chip active">Сегодня</button>
+              <button class="chip">Неделя</button>
+              <button class="chip">Месяц</button>
+              <button class="chip">⚙</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="kpi-grid">
+          <div class="kpi">
+            <div class="kpi-top">
+              <div class="kpi-ic blue">✓</div>
+              <span class="kpi-delta up">—</span>
+            </div>
+            <div class="kpi-val">—</div>
+            <div class="kpi-lbl">Задачи на сегодня</div>
+          </div>
+          <div class="kpi">
+            <div class="kpi-top">
+              <div class="kpi-ic red">!</div>
+              <span class="kpi-delta down">—</span>
+            </div>
+            <div class="kpi-val">—</div>
+            <div class="kpi-lbl">Просрочено</div>
+          </div>
+          <div class="kpi">
+            <div class="kpi-top">
+              <div class="kpi-ic green">₽</div>
+              <span class="kpi-delta up">—</span>
+            </div>
+            <div class="kpi-val">—</div>
+            <div class="kpi-lbl">Прогноз выручки</div>
+          </div>
+          <div class="kpi">
+            <div class="kpi-top">
+              <div class="kpi-ic amber">%</div>
+              <span class="kpi-delta up">—</span>
+            </div>
+            <div class="kpi-val">—</div>
+            <div class="kpi-lbl">Конверсия</div>
+          </div>
+        </div>
+
+        <div class="dash-grid">
+          <div>
+            <div class="section-head">
+              <h3>Ближайшие задачи</h3>
+              <label class="mini-btn" for="page-tasks">+ Добавить</label>
+            </div>
+            <ul class="list">
+              <li class="item">
+                <input class="cb" type="checkbox">
+                <div class="item-body">
+                  <div class="item-title">—</div>
+                  <div class="item-meta"><span class="dot"></span>—</div>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <div class="section-head">
+              <h3>Последние сделки</h3>
+              <label class="mini-btn" for="page-deals">+ Добавить</label>
+            </div>
+            <ul class="list">
+              <li class="item">
+                <div class="item-body">
+                  <div class="item-title">—</div>
+                  <div class="item-meta">—</div>
+                </div>
+                <span class="badge">—</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="page" id="clients-page">
+        <div class="page-head">
+          <div>
+            <h1>Клиенты</h1>
+            <div class="sub">База клиентов и контактов</div>
+          </div>
+          <div class="actions">
+            <button class="btn btn-primary">+ Добавить клиента</button>
+          </div>
+        </div>
+
+        <div class="filterbar">
+          <div class="searchrow">
+            <div class="search">
+              <span class="ic">🔍</span>
+              <input type="text" placeholder="Поиск...">
+            </div>
+            <button class="chip">Фильтр</button>
+          </div>
+          <div class="chips">
+            <button class="chip">Статус ▾</button>
+            <button class="chip">Менеджер ▾</button>
+            <button class="chip">Источник ▾</button>
+            <button class="chip">Сортировка ▾</button>
+          </div>
+        </div>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Клиент</th>
+                <th>Статус</th>
+                <th>Менеджер</th>
+                <th>Телефон</th>
+                <th>Сделок</th>
+                <th>Сумма</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>—</td>
+                <td>—</td>
+                <td>—</td>
+                <td>—</td>
+                <td>—</td>
+                <td>—</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="page" id="deals-page">
+        <div class="page-head">
+          <div>
+            <h1>Сделки</h1>
+            <div class="sub">Воронка продаж и список сделок</div>
+          </div>
+          <div class="actions">
+            <button class="btn btn-primary">+ Новая сделка</button>
+          </div>
+        </div>
+
+        <div class="funnel">
+          <div class="stage">
+            <div class="stage-name"><span class="dot blue"></span>Новые</div>
+            <div class="stage-bar"><i style="width:0%"></i></div>
+            <div class="stage-sum">—</div>
+          </div>
+          <div class="stage">
+            <div class="stage-name"><span class="dot amber"></span>В работе</div>
+            <div class="stage-bar"><i style="width:0%"></i></div>
+            <div class="stage-sum">—</div>
+          </div>
+          <div class="stage">
+            <div class="stage-name"><span class="dot amber"></span>Переговоры</div>
+            <div class="stage-bar"><i style="width:0%"></i></div>
+            <div class="stage-sum">—</div>
+          </div>
+          <div class="stage">
+            <div class="stage-name"><span class="dot green"></span>Договор</div>
+            <div class="stage-bar"><i style="width:0%"></i></div>
+            <div class="stage-sum">—</div>
+          </div>
+          <div class="stage">
+            <div class="stage-name"><span class="dot green"></span>Закрыто</div>
+            <div class="stage-bar"><i style="width:0%"></i></div>
+            <div class="stage-sum">—</div>
+          </div>
+        </div>
+
+        <div class="filterbar" style="margin-top:4px;">
+          <div class="chips">
+            <button class="chip">Менеджер ▾</button>
+            <button class="chip">Период ▾</button>
+            <button class="chip">Сумма ▾</button>
+          </div>
+          <button class="chip">Фильтр</button>
+        </div>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Сделка</th>
+                <th>Клиент</th>
+                <th>Этап</th>
+                <th>Сумма</th>
+                <th>Ответственный</th>
+                <th>Дата закрытия</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>—</td>
+                <td>—</td>
+                <td>—</td>
+                <td>—</td>
+                <td>—</td>
+                <td>—</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="page" id="tasks-page">
+        <div class="page-head">
+          <div>
+            <h1>Задачи</h1>
+            <div class="sub">Управление задачами и напоминаниями</div>
+          </div>
+          <div class="actions">
+            <button class="btn btn-primary">+ Добавить задачу</button>
+          </div>
+        </div>
+
+        <div class="filterbar">
+          <div class="chips">
+            <button class="chip active">Сегодня</button>
+            <button class="chip">Просроченные</button>
+            <button class="chip">Все</button>
+            <button class="chip">Выполненные</button>
+          </div>
+          <div style="display:flex;gap:8px;">
+            <button class="chip">Список</button>
+            <button class="chip">Календарь</button>
+            <button class="chip">Фильтр 🔍</button>
+          </div>
+        </div>
+
+        <ul class="list">
+          <li class="item">
+            <input class="cb" type="checkbox">
+            <div class="item-body">
+              <div class="item-title">—</div>
+              <div class="item-meta"><span class="dot"></span>—</div>
+            </div>
+            <span class="badge">—</span>
+          </li>
+        </ul>
+      </section>
+
+      <section class="page" id="reports-page">
+        <div class="page-head">
+          <div>
+            <h1>Отчёты</h1>
+            <div class="sub">Аналитика продаж и эффективности</div>
+          </div>
+          <div class="actions">
+            <button class="btn btn-soft">PDF</button>
+            <button class="btn btn-soft">Excel</button>
+          </div>
+        </div>
+
+        <div class="card" style="display:flex;flex-direction:column;gap:12px;">
+          <div style="display:flex;gap:16px;flex-wrap:wrap;align-items:center;">
+            <div style="display:flex;align-items:center;gap:8px;">
+              <span style="font-size:13px;color:var(--muted);font-weight:600;">Период:</span>
+              <span style="background:#f6f8fd;border:1px solid var(--line);border-radius:9px;padding:8px 12px;font-size:13px;font-weight:700;">—</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:8px;">
+              <span style="font-size:13px;color:var(--muted);font-weight:600;">Менеджер:</span>
+              <span style="background:#f6f8fd;border:1px solid var(--line);border-radius:9px;padding:8px 12px;font-size:13px;font-weight:700;">—</span>
+            </div>
+            <button class="btn btn-primary btn-sm">Применить</button>
+            <button class="btn btn-ghost btn-sm">Сбросить</button>
+          </div>
+        </div>
+
+        <div class="section-head" style="margin-top:4px;">
+          <h3>Выручка за период</h3>
+        </div>
+        <div class="chart">
+          <div class="col"><div class="bar2" style="height:0%"></div><span>Пн</span></div>
+          <div class="col"><div class="bar2" style="height:0%"></div><span>Вт</span></div>
+          <div class="col"><div class="bar2" style="height:0%"></div><span>Ср</span></div>
+          <div class="col"><div class="bar2" style="height:0%"></div><span>Чт</span></div>
+          <div class="col"><div class="bar2" style="height:0%"></div><span>Пт</span></div>
+        </div>
+
+        <div class="dash-grid" style="margin-top:8px;">
+          <div>
+            <div class="section-head">
+              <h3>Эффективность менеджеров</h3>
+            </div>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr><th>Менеджер</th><th>Сделок</th><th>Выручка</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td>—</td><td>—</td><td>—</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div>
+            <div class="section-head">
+              <h3>Причины проигрыша</h3>
+            </div>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr><th>Причина</th><th>Доля</th><th>Сделок</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td>—</td><td>—</td><td>—</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="page" id="profile-page">
+        <div class="page-head">
+          <div>
+            <h1>Профиль</h1>
+            <div class="sub">Учётная запись и управление пользователями</div>
+          </div>
+        </div>
+
+        <div class="detail-grid">
+
+          <div class="detail-card">
+            <div class="profile-head">
+              <div class="avatar-lg">U</div>
+              <div>
+                <div class="name">Пользователь</div>
+                <div class="line">email@example.com</div>
+                <div class="line">+7 000 000-00-00</div>
+                <span class="role-pill">Роль: —</span>
+              </div>
+            </div>
+            <div style="display:flex;gap:10px;margin-top:20px;">
+              <button class="btn btn-ghost btn-sm">Редактировать профиль</button>
+              <button class="btn btn-ghost btn-sm">Сменить пароль</button>
+            </div>
+          </div>
+
+          <div class="detail-card">
+            <div class="section-head">
+              <h3>Управление пользователями</h3>
+              <span class="badge">Только админ</span>
+            </div>
+            <div class="user-row">
+              <div class="u-av">—</div>
+              <div class="u-info">
+                <div class="u-name">—</div>
+                <div class="u-role">—</div>
+              </div>
+              <button class="u-act" title="Редактировать">✎</button>
+              <button class="u-act" title="Удалить">🗑</button>
+            </div>
+            <div style="display:flex;gap:10px;margin-top:18px;">
+              <button class="btn btn-soft btn-sm">+ Добавить пользователя</button>
+              <button class="btn btn-soft btn-sm">Назначить права</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
