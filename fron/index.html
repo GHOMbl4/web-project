@@ -8,9 +8,6 @@
 </head>
 <body>
 
-<!-- ============================================================
-     РАДИО-ПЕРЕКЛЮЧАТЕЛИ СТРАНИЦ
-     ============================================================ -->
 <input class="page-radio" type="radio" name="page" id="page-login" checked>
 <input class="page-radio" type="radio" name="page" id="page-dashboard">
 <input class="page-radio" type="radio" name="page" id="page-clients">
@@ -19,9 +16,6 @@
 <input class="page-radio" type="radio" name="page" id="page-reports">
 <input class="page-radio" type="radio" name="page" id="page-profile">
 
-<!-- ============================================================
-     ЛОГИН
-     ============================================================ -->
 <div class="login-view" id="login-view">
   <div class="login-card">
     <div class="logo">CRM</div>
@@ -50,12 +44,8 @@
   </div>
 </div>
 
-<!-- ============================================================
-     ПРИЛОЖЕНИЕ
-     ============================================================ -->
 <div class="app-view" id="app-view">
 
-  <!-- ===== САЙДБАР ===== -->
   <aside class="sidebar">
     <div class="logo">
       <span class="mark">CRM</span>
@@ -95,10 +85,8 @@
     </div>
   </aside>
 
-  <!-- ===== ОСНОВНАЯ ОБЛАСТЬ ===== -->
   <div class="main">
 
-    <!-- ===== ТОПБАР ===== -->
     <header class="topbar">
       <div class="search">
         <span class="ic">🔍</span>
@@ -117,12 +105,8 @@
       </div>
     </header>
 
-    <!-- ===== КОНТЕНТ ===== -->
     <main class="content">
 
-      <!-- ==========================================================
-           СТРАНИЦА: ДАШБОРД
-           ========================================================== -->
       <section class="page" id="dashboard-page">
         <div class="page-head">
           <div>
@@ -139,7 +123,6 @@
           </div>
         </div>
 
-        <!-- KPI -->
         <div class="kpi-grid">
           <div class="kpi">
             <div class="kpi-top">
@@ -175,9 +158,7 @@
           </div>
         </div>
 
-        <!-- Две колонки -->
         <div class="dash-grid">
-          <!-- Ближайшие задачи -->
           <div>
             <div class="section-head">
               <h3>Ближайшие задачи</h3>
@@ -194,7 +175,6 @@
             </ul>
           </div>
 
-          <!-- Последние сделки -->
           <div>
             <div class="section-head">
               <h3>Последние сделки</h3>
@@ -213,9 +193,6 @@
         </div>
       </section>
 
-      <!-- ==========================================================
-           СТРАНИЦА: КЛИЕНТЫ
-           ========================================================== -->
       <section class="page" id="clients-page">
         <div class="page-head">
           <div>
@@ -269,9 +246,6 @@
         </div>
       </section>
 
-      <!-- ==========================================================
-           СТРАНИЦА: СДЕЛКИ
-           ========================================================== -->
       <section class="page" id="deals-page">
         <div class="page-head">
           <div>
@@ -283,7 +257,6 @@
           </div>
         </div>
 
-        <!-- Воронка -->
         <div class="funnel">
           <div class="stage">
             <div class="stage-name"><span class="dot blue"></span>Новые</div>
@@ -312,7 +285,6 @@
           </div>
         </div>
 
-        <!-- Фильтры -->
         <div class="filterbar" style="margin-top:4px;">
           <div class="chips">
             <button class="chip">Менеджер ▾</button>
@@ -322,7 +294,6 @@
           <button class="chip">Фильтр</button>
         </div>
 
-        <!-- Таблица сделок -->
         <div class="table-wrap">
           <table>
             <thead>
@@ -349,9 +320,6 @@
         </div>
       </section>
 
-      <!-- ==========================================================
-           СТРАНИЦА: ЗАДАЧИ
-           ========================================================== -->
       <section class="page" id="tasks-page">
         <div class="page-head">
           <div>
@@ -389,9 +357,6 @@
         </ul>
       </section>
 
-      <!-- ==========================================================
-           СТРАНИЦА: ОТЧЁТЫ
-           ========================================================== -->
       <section class="page" id="reports-page">
         <div class="page-head">
           <div>
@@ -404,7 +369,6 @@
           </div>
         </div>
 
-        <!-- Фильтры -->
         <div class="card" style="display:flex;flex-direction:column;gap:12px;">
           <div style="display:flex;gap:16px;flex-wrap:wrap;align-items:center;">
             <div style="display:flex;align-items:center;gap:8px;">
@@ -420,7 +384,6 @@
           </div>
         </div>
 
-        <!-- График -->
         <div class="section-head" style="margin-top:4px;">
           <h3>Выручка за период</h3>
         </div>
@@ -432,7 +395,6 @@
           <div class="col"><div class="bar2" style="height:0%"></div><span>Пт</span></div>
         </div>
 
-        <!-- Таблицы -->
         <div class="dash-grid" style="margin-top:8px;">
           <div>
             <div class="section-head">
@@ -467,9 +429,6 @@
         </div>
       </section>
 
-      <!-- ==========================================================
-           СТРАНИЦА: ПРОФИЛЬ
-           ========================================================== -->
       <section class="page" id="profile-page">
         <div class="page-head">
           <div>
@@ -479,7 +438,7 @@
         </div>
 
         <div class="detail-grid">
-          <!-- Левая колонка: данные профиля -->
+
           <div class="detail-card">
             <div class="profile-head">
               <div class="avatar-lg">U</div>
@@ -496,7 +455,6 @@
             </div>
           </div>
 
-          <!-- Правая колонка: управление пользователями (только админ) -->
           <div class="detail-card">
             <div class="section-head">
               <h3>Управление пользователями</h3>
